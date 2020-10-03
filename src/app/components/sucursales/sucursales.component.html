@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="d-flex">
+    <h3 class="mx-auto mt-4">Sucursales</h3>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4 mt-4" *ngFor="let sucursal of Result.Items">
+      <div class="card bg-secondary mb-3" style="max-width: 20rem">
+        <div class="card-header">{{ sucursal.nombre }}</div>
+        <div class="card-body">
+          <p class="card-text">
+            {{ sucursal.direccion }}
+          </p>
+          <a
+            [routerLink]="['/sucursales/', sucursal.nombre, 'add-colaborador']"
+            class="btn btn-primary"
+            >Agregar Colaborador</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

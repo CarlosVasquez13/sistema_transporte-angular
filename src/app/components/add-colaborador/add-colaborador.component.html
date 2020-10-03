@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+      <div class="card bg-secondary mb-3" style="max-width: 50rem">
+        <div class="card-header">Agregar colaborador a sucursal</div>
+        <div class="card-body">
+          <div class="d-flex form-group">
+            <span class="h4 text-justify-center pt-2"> Homero Simpson</span>
+            <button class="btn btn-secondary">Seleccionar colaborador</button>
+          </div>
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1"
+                >Distancia del Recorrido(km)</label
+              >
+              <input
+                type="number"
+                step="any"
+                class="form-control"
+                id="distancia"
+                name="distancia"
+                [(ngModel)]="dataUser.user"
+                aria-describedby="emailHelp"
+                placeholder="Distancia sucursal -> casa"
+              />
+            </div>
+            <button class="btn btn-primary btn-block">Agregar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

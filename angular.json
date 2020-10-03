@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sistema-transporte"
+    }
+  },
+  "defaultProject": "sistema-transporte",
+  "cli": {
+    "analytics": false
+  }
 }
