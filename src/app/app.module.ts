@@ -17,7 +17,9 @@ import { ReporteComponent } from './components/reporte/reporte.component';
 import { LoginService } from './services/login.service';
 import { SucursalesService } from './services/sucursales.service';
 import { ReporteService } from './services/reporte.service';
+import { ColaboradorService } from './services/colaborador.service';
 import { AddColaboradorComponent } from './components/add-colaborador/add-colaborador.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,19 @@ import { AddColaboradorComponent } from './components/add-colaborador/add-colabo
     ReporteComponent,
     AddColaboradorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [LoginService, SucursalesService, ReporteService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgbModule,
+  ],
+  providers: [
+    LoginService,
+    SucursalesService,
+    ReporteService,
+    ColaboradorService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

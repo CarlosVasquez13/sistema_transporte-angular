@@ -42,7 +42,7 @@ const routes: Routes = [
     component: ReporteComponent,
   },
   {
-    path: 'sucursales/:nombre/add-colaborador',
+    path: 'sucursales/:nombre/:id/add-colaborador',
     component: AddColaboradorComponent,
   },
 ];

@@ -11,7 +11,12 @@
             {{ sucursal.direccion }}
           </p>
           <a
-            [routerLink]="['/sucursales/', sucursal.nombre, 'add-colaborador']"
+            [routerLink]="[
+              '/sucursales/',
+              sucursal.nombre,
+              sucursal.id,
+              'add-colaborador'
+            ]"
             class="btn btn-primary"
             >Agregar Colaborador</a
           >

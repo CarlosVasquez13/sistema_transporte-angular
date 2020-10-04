@@ -1,1 +1,116 @@
-<p>reporte works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+      <h1>reporte</h1>
+      <div class="card bg-gray mb-3" style="max-width: 50rem">
+        <div class="card-header">Reporte de Recorridos por Transportista</div>
+        <div class="card-body">
+          <form>
+            <div class="d-flex form-group">
+              <span class="p text-justify-center pt-2 mr-3">
+                {{ SelectedUser.user.nombre }}
+              </span>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                class="btn btn-outline-primary"
+                (click)="modal.open(contenido)"
+              >
+                Seleccionar Transportista
+              </button>
+            </div>
+            <div class="form-group">
+              <span>Selecciona un intervalo de fechas</span>
+            </div>
+            <div class="form-group d-flex">
+              <div class="mx-auto">
+                <label for="exampleInputEmail1">Fecha Inicial</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="fechaInicial"
+                  name="fechaInicial"
+                  [(ngModel)]="datesSelect.fechaInicial"
+                  aria-describedby="emailHelp"
+                  placeholder="Selecciona una fecha"
+                />
+              </div>
+              <div class="mx-auto">
+                <label for="exampleInputEmail1">Fecha Final</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="fechaFinal"
+                  [(ngModel)]="datesSelect.fechaFinal"
+                  name="fechaFinal"
+                  aria-describedby="emailHelp"
+                  placeholder="Selecciona una fecha"
+                />
+              </div>
+            </div>
+            <div *ngIf="datesSelect.error">
+              <div class="alert alert-dismissible alert-danger mt-3">
+                <button
+                  type="button"
+                  (click)="closeError()"
+                  class="close"
+                  data-dismiss="alert"
+                >
+                  &times;
+                </button>
+                <strong>Debes un parametro de fechas correctos</strong>
+              </div>
+            </div>
+            <div *ngIf="SelectedUser.error">
+              <div class="alert alert-dismissible alert-danger mt-3">
+                <button
+                  type="button"
+                  (click)="closeError()"
+                  class="close"
+                  data-dismiss="alert"
+                >
+                  &times;
+                </button>
+                <strong>Debes seleccionar un Transportista</strong>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-block" (click)="newReport()">
+              Generar Reporte
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #contenido let-modal>
+    <div class="modal-header">
+      <h5>Seleccione un usuario</h5>
+      <button
+        class="close"
+        aria-label="close"
+        type="button"
+        (click)="modal.dismiss()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="list-group" *ngFor="let user of Result.Items">
+        <button
+          type="button"
+          (click)="selectUser(user)"
+          class="list-group-item list-group-item-action my-1 d-flex"
+        >
+          {{ user.nombre }}
+          <span class="ml-auto">check</span>
+        </button>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="modal.close()">
+        Cerrar
+      </button>
+    </div>
+  </ng-template>
+</div>
